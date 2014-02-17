@@ -10,7 +10,7 @@ public class ShiftCipher extends MonoalphabeticCipher {
 	 * @param int value
 	 * 
 	 * Eingangsparameter: ein int Wert der schon in von der Aufrufermethode überprüft werden muss
-	 * Berechnet wird das verschobene Alphabet und dann in Monoaphabetic mittels setSecretAlphabet gesettet
+	 * Berechnet wird das verschobene Alphabet und dann diesen String mit der Methode setSecretAlphabet gespeichert
 	 */
 	public ShiftCipher(int value) {
 		this.setShiftAmount(value);
@@ -38,6 +38,6 @@ public class ShiftCipher extends MonoalphabeticCipher {
 	 */
 	
 	public static void main(String[] args) {
-		new ShiftCipher(1);
+		new ShiftCipher(2);
 	}
 }
