@@ -9,12 +9,6 @@ import java.awt.event.ActionListener;
  *@version 17.02.2014
  */
 public class Controller implements ActionListener {
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 	private GUI g;
 	/**
 	 * 
@@ -25,6 +19,19 @@ public class Controller implements ActionListener {
 	
 	public static void main(String[] args) {
 		Controller c = new Controller();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(g.dropdownPressed(e)) {
+			g.setLabel();
+		}
+		if(g.buttonVerPressed(e)){
+			g.setAusgabe("\n Test");
+		}
+		if(g.buttonEntPressed(e)){
+			
+		}
 	}
 
 }

@@ -2,6 +2,7 @@ package kritzlmalikwortha;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -10,7 +11,7 @@ import javax.swing.border.LineBorder;
 /**
  * Die GUI für das Verschlüsselungsprogramm wid hier erstellt!
  * @author Simon Wortha
- * @version 17.02.2014
+ * @version 18.02.2014
  *
  */
 public class GUI extends JFrame {
@@ -52,7 +53,7 @@ public class GUI extends JFrame {
 		this.verSch = new JTextField();
 		
 		this.label1 = new JLabel("Verschlüsselungsmethode:");
-		this.label2 = new JLabel("Shiftvalue:");
+		this.label2 = new JLabel("Geheimalphabet:");
 		
 		this.bVer = new JButton("Verschlüsseln");
 		this.bEnt = new JButton("Entschlüsseln");
@@ -82,6 +83,69 @@ public class GUI extends JFrame {
 		this.add(pCenter, BorderLayout.CENTER);
 		this.add(pBot, BorderLayout.SOUTH);
 		
+		bVer.addActionListener(controller);
+		bEnt.addActionListener(controller);
+		dropdown.addActionListener(controller);
+		
 		this.setVisible(true);
+	}
+	/**
+	 * ActionListener
+	 * @param e
+	 * @return on gedrückt
+	 */
+	public boolean buttonVerPressed(ActionEvent e) {
+		if (e.getSource() == this.bVer) return true;
+		return false;
+	}
+	/**
+	 * ActionListener
+	 * @param e
+	 * @return ob gedrückt
+	 */
+	public boolean buttonEntPressed(ActionEvent e) {
+		if (e.getSource() == this.bEnt) return true;
+		return false;
+	}
+	/**
+	 * @param e
+	 * @return ob Werte verändert
+	 */
+	public boolean dropdownPressed(ActionEvent e) {
+		if (e.getSource() == this.dropdown) return true;
+		return false;
+	}
+	/**
+	 * @return gibt die Verschiebung bzw wie Verschlüsselt werden soll an
+	 */
+	public String getVerSch() {
+		return this.verSch.getText();
+	}
+	/**
+	 * @return gibt den Text zurück der sich in der Textarea befindet
+	 */
+	public String getEingabe() {
+		return this.eingText.getText();
+	}
+	/**
+	 * @param neu Es soll der neue bzw. der verschlüsselte oder entschlüsselte Text übergeben werden  
+	 */
+	public void setAusgabe(String neu) {
+		this.ausgText.setText(neu);
+	}
+	/**
+	 * @return gibt den Ausgewählten Wert der Dropdown-Liste an
+	 */
+	public int getSelected() {
+		return this.dropdown.getSelectedIndex();
+	}
+	/**
+	 * 
+	 */
+	public void setLabel() {
+		//String s = this.getSelected();
+		if(this.getSelected() == 0) this.label2.setText("Geheimalphabet:");
+		if(this.getSelected() == 1) this.label2.setText("Shiftvalue:");
+		if(this.getSelected() == 2) this.label2.setText("Keyword:");
 	}
 }
