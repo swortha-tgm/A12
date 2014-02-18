@@ -28,7 +28,6 @@ public class MonoalphabeticCipher implements Cipher{
 		for (int i = 0; i<text.length();i++){
 			char test = text.charAt(i);
 			int index = alph.indexOf(test);
-			
 			unklar = unklar+this.getSecretAlphabet().charAt(index);
 		}
 		return unklar;

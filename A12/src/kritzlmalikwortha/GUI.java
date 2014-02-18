@@ -44,8 +44,8 @@ public class GUI extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(700, 400);
 		
-		this.eingText = new JTextArea("\n Hier den zu Ver/Ent-schlüsselten Text angeben");
-		this.ausgText = new JTextArea("\n Ausgabefeld");
+		this.eingText = new JTextArea("Hier den zu Ver/Ent-schlüsselten Text angeben");
+		this.ausgText = new JTextArea("Ausgabefeld");
 		this.border = LineBorder.createBlackLineBorder();
 		eingText.setBorder(border);
 		ausgText.setBorder(border);
