@@ -22,7 +22,16 @@ public class MonoalphabeticCipher implements Cipher{
 	 */
 	public String encrypt(String text) {
 		String alph = "abcdefghijklmnopqrstuvwxyzäöüß";
-		return null;
+		text=text.toLowerCase();
+		String unklar = "";
+		
+		for (int i = 0; i<text.length();i++){
+			char test = text.charAt(i);
+			int index = alph.indexOf(test);
+			
+			unklar = unklar+this.getSecretAlphabet().charAt(index);
+		}
+		return unklar;
 	}
 
 
@@ -31,7 +40,16 @@ public class MonoalphabeticCipher implements Cipher{
 	 */
 	public String decrypt(String text) {
 		String alph = "abcdefghijklmnopqrstuvwxyzäöüß";
-		return null;
+		text=text.toLowerCase();
+		String klar = "";
+		
+		for (int i = 0; i<text.length();i++){
+			char test = text.charAt(i);
+			int index = this.getSecretAlphabet().indexOf(test);
+			
+			klar = klar+alph.charAt(index);
+		}
+		return klar;
 	}
 	
 	public void setSecretAlphabet(String alphabet) throws IllegalArgumentException{
