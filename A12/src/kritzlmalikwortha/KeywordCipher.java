@@ -14,16 +14,37 @@ public class KeywordCipher extends MonoalphabeticCipher {
 	private String keyword;
 	
 	/** 
-	 * @param String keyword
+	 * @param keyword
 	 * 
-	 * Eingangsparameter: ein String der nur Character aus dem Alphabet beinhalten darf, ansonsten wird eine IllegalArgumentException 
-	 * 					  geworfen
+	 * Eingangsparameter: ein Default Key der schon in der Aufrufermethode auf Richtigkeit geprüft wird
+	 * Speichern des Eingangsparameter in das Attribut
+	 * 
+	 */
+	public KeywordCipher(String keyword) {
+		this.setKeyword(keyword);
+	}
+
+	/**
+	 * @param keyword
+	 * 
+	 * Eingangsparameter: ein String der nur Character aus dem Alphabet beinhalten darf und nicht länger oder kürzer als 30 Zeichen
+	 *					  sein darf, ansonsten eine IllegalArgumentException geworfen
 	 * Das Keyword wird am Anfang geschrieben und die nicht in diesem Wort vorkommenden Character werden in alphabetischer Reihenfolge
 	 * hinten angehängt und dann diesen String mit der Methode setSecretAlphabet gespeichert
 	 * 
 	 */
-	public KeywordCipher(String keyword) {
-		char[] keyChar = keyword.toCharArray();
+	public void setKeyword(String keyword) {
+		keyword = keyword.toLowerCase();
+		for(int i = 0;i<keyword.length();i++){
+			
+			if(!this.getSecretAlphabet().contains(""+keyword.charAt(i))){
+				throw new IllegalArgumentException("The character '"+this.getSecretAlphabet().charAt(i)+"' with the index "+i+" is NOT allowed");				
+			}
+		}
+		if (keyword.length() > 30) throw new IllegalArgumentException("The Keyword contains to many characters");
+		this.keyword = keyword;
+		
+		char[] keyChar = this.keyword.toCharArray();
 		LinkedHashSet<Character> alphabetCharSet = new LinkedHashSet<Character>(); 
 		char[] alphabetChar = this.getSecretAlphabet().toCharArray();
 		for (Character c : keyChar) {
@@ -37,34 +58,18 @@ public class KeywordCipher extends MonoalphabeticCipher {
 		for (Character c: alphabetCharSet) {
 			ausgabe += c;
 		}
-		//Wird nach dem Testen wieder gelöscht
-		System.out.println(ausgabe);
 		this.setSecretAlphabet(ausgabe);
-	}
-	/**
-	 * @param String keyword
-	 * 
-	 * Speichert den übergebenen String in das Attribut ab und wirft eine IllegalArgumentException wenn das Keyword länger als
-	 * 30 Buchstaben ist, oder Zeichen enthält welche nicht erlaubt sind
-	 */
-	public void setKeyword(String keyword) {
-		for(int i = 0;i<this.getSecretAlphabet().length();i++){
-			
-			if(!keyword.contains(""+this.getSecretAlphabet().charAt(i))){
-				throw new IllegalArgumentException("The character '"+this.getSecretAlphabet().charAt(i)+"' with the index "+i+" is NOT allowed");				
-			}
-		}
-		if (keyword.length() > 30) throw new IllegalArgumentException("The alphabet contains to many characters");
-		this.keyword = keyword;
 	}
 	
 	/**
-	 * @param String [] args
+	 * @param args
 	 * Diese Methode wird nach dem Testen wieder gelöscht
 	 */
 	
 	public static void main(String[] args) {
-		new KeywordCipher("bd");
+		//MonoalphabeticCipher m = new MonoalphabeticCipher();
+		 KeywordCipher k = new KeywordCipher("Hallo");
+		 System.out.println("SecretAlphabet: " + k.getSecretAlphabet());
 	}
 
 }
