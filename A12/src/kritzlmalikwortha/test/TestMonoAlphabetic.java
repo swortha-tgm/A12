@@ -1,6 +1,7 @@
-package kritzlmalikwortha;
+package kritzlmalikwortha.test;
 
 import static org.junit.Assert.*;
+import kritzlmalikwortha.MonoalphabeticCipher;
 
 import org.junit.Test;
 
