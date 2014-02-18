@@ -1,10 +1,15 @@
 package kritzlmalikwortha;
 
+/**
+ * @author Martin Kritzl
+ * Funktion: Die Klasse ist zur Verschlüsselung nach einem Verschiebewert zuständig. Hierbei wird das Alphabet um den gegebenen
+ * 			 Wert nach links verschoben(z.B Verschiebung 1 --> Anfang mit b)
+ *
+ */
+
 public class ShiftCipher extends MonoalphabeticCipher {
 	
 	private int shiftAmount;
-	//Zum testen wird ein Alphabet erstellt
-	private String alphabet = "abcdefghijklmnopqrstuvwxyzßöäü";
 	
 	/**
 	 * @param int value
@@ -14,13 +19,13 @@ public class ShiftCipher extends MonoalphabeticCipher {
 	 */
 	public ShiftCipher(int value) {
 		this.setShiftAmount(value);
-		//char[] alphabetChar = this.getSecretAlphabet().toCharArray();
-		char[] alphabetChar = this.alphabet.toCharArray();
+		char[] alphabetChar = this.getSecretAlphabet().toCharArray();
 		char[] alphabetShift = new char[30];
 		for(int i=0; i < 30;i++) {
 			alphabetShift[(i+30-this.shiftAmount)%30] = alphabetChar[i];
 		}
-		//this.setSecretAlphabetString.valueOf(alphabetShift));
+		this.setSecretAlphabet(String.valueOf(alphabetShift));
+		//Wird nach dem Testen wieder gelöscht
 		System.out.println(String.valueOf(alphabetShift));
 	}
 	/**

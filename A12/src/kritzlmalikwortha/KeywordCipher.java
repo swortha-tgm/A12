@@ -2,12 +2,16 @@ package kritzlmalikwortha;
 
 import java.util.LinkedHashSet;
 
+/**
+ * @author Martin Kritzl
+ * Funktion: Die Klasse ist zur Verschlüsselung nach einem Keyword zuständig. Hierbei wird ein Keyword am Anfang geschrieben
+ * 			 und die nicht vorkommenden Buchstaben aus dem Alphabet werden hinten angehängt
+ *
+ */
+
 public class KeywordCipher extends MonoalphabeticCipher {
 	
 	private String keyword;
-	
-	//Wird nach dem Testen gelöscht
-	private String alphabet = "abcdefghijklmnopqrstuvwxyzßöäü";
 	
 	/** 
 	 * @param String keyword
@@ -21,19 +25,21 @@ public class KeywordCipher extends MonoalphabeticCipher {
 	public KeywordCipher(String keyword) {
 		char[] keyChar = keyword.toCharArray();
 		LinkedHashSet<Character> alphabetCharSet = new LinkedHashSet<Character>(); 
-		//Wird nach dem Testen mit dem unteren Ausdruck ausgetauscht
-		//char[] alphabetChar = this.getSecretAlphabet().toCharArray();
-		char[] alphabetChar = this.alphabet.toCharArray();
+		char[] alphabetChar = this.getSecretAlphabet().toCharArray();
 		for (Character c : keyChar) {
 			alphabetCharSet.add(c);
 		}
 		for (Character c : alphabetChar) {
 			alphabetCharSet.add(c);
 		}
-		//Wird nach dem Testen gelöscht
+		String ausgabe = "";
+		
 		for (Character c: alphabetCharSet) {
-			System.out.print(c);
+			ausgabe += c;
 		}
+		//Wird nach dem Testen wieder gelöscht
+		System.out.println(ausgabe);
+		this.setSecretAlphabet(ausgabe);
 	}
 	/**
 	 * @param String keyword
