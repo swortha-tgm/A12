@@ -15,5 +15,16 @@ public class Controller implements ActionListener {
 		// TODO Auto-generated method stub
 		
 	}
+	private GUI g;
+	/**
+	 * 
+	 */
+	public Controller() {
+		g = new GUI(this);
+	}
+	
+	public static void main(String[] args) {
+		Controller c = new Controller();
+	}
 
 }
