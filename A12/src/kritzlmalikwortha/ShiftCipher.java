@@ -12,13 +12,24 @@ public class ShiftCipher extends MonoalphabeticCipher {
 	private int shiftAmount;
 	
 	/**
-	 * @param int value
+	 * @param value
 	 * 
-	 * Eingangsparameter: ein int Wert der schon in von der Aufrufermethode überprüft werden muss
-	 * Berechnet wird das verschobene Alphabet und dann diesen String mit der Methode setSecretAlphabet gespeichert
+	 * Eingangsparameter: ein int-Wert der eine beliebige Zahl sein kann
+	 * Speichern des Eingangsparameter in das Attribut
 	 */
 	public ShiftCipher(int value) {
-		this.setShiftAmount(value);
+		this.shiftAmount = value%30;
+				
+	}
+	/**
+	 * @param shiftamount
+	 * 
+	 * Eingangsparameter: ein int-Wert der eine beliebige Zahl sein kann
+	 * Es wird der shiftAmount gesetzt, aber schon mittels %30 gleich vereinfacht wird und dann das Alphabet um
+	 * diesen Wert verschiebt
+	 */
+	public void setShiftAmount(int shiftamount) {
+		this.shiftAmount = shiftamount%30;
 		char[] alphabetChar = this.getSecretAlphabet().toCharArray();
 		char[] alphabetShift = new char[30];
 		for(int i=0; i < 30;i++) {
@@ -29,16 +40,7 @@ public class ShiftCipher extends MonoalphabeticCipher {
 		System.out.println(String.valueOf(alphabetShift));
 	}
 	/**
-	 * @param int shiftamount
-	 * 
-	 * Eingangsparameter: ein int Wert der schon in von der Aufrufermethode überprüft werden muss
-	 * Es wird der shiftAmount gesetzt, aber schon mittels %30 vereinfacht
-	 */
-	public void setShiftAmount(int shiftamount) {
-		this.shiftAmount = shiftamount%30;
-	}
-	/**
-	 * @param String [] args
+	 * @param args
 	 * Diese Methode wird nach dem Testen wieder gelöscht
 	 */
 	
