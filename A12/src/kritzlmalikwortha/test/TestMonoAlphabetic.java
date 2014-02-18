@@ -5,7 +5,7 @@ import kritzlmalikwortha.MonoalphabeticCipher;
 
 import org.junit.Test;
 
-public class TestMonoalphabetic {
+public class TestMonoAlphabetic {
 	
 			@Test (expected=IllegalArgumentException.class)
 			public void alph1() {
