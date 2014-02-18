@@ -44,9 +44,17 @@ public class KeywordCipher extends MonoalphabeticCipher {
 	/**
 	 * @param String keyword
 	 * 
-	 * Speichert den übergebenen String in das Attribut ab
+	 * Speichert den übergebenen String in das Attribut ab und wirft eine IllegalArgumentException wenn das Keyword länger als
+	 * 30 Buchstaben ist, oder Zeichen enthält welche nicht erlaubt sind
 	 */
 	public void setKeyword(String keyword) {
+		for(int i = 0;i<this.getSecretAlphabet().length();i++){
+			
+			if(!keyword.contains(""+this.getSecretAlphabet().charAt(i))){
+				throw new IllegalArgumentException("The character '"+this.getSecretAlphabet().charAt(i)+"' with the index "+i+" is NOT allowed");				
+			}
+		}
+		if (keyword.length() > 30) throw new IllegalArgumentException("The alphabet contains to many characters");
 		this.keyword = keyword;
 	}
 	
