@@ -1,24 +1,35 @@
 package kritzlmalikwortha;
 
 import java.util.HashSet;
-
+/**
+ * Überprüft die eingegebenen Alphabete, ist für das ver-und entschlüsseln zuständig
+ * 
+ * @author Patrik Malik(Programmieren), Martin Kritzl(Dukumentieren)
+ *
+ */
 public class MonoalphabeticCipher implements Cipher{
 
 	private String secretAlphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
-
+/**
+ * Legt den Standardwert des Alphabets fest
+ */
 	public MonoalphabeticCipher() {
 		
 		this.secretAlphabet=secretAlphabet;
 		
 	}
-
+/**
+ * Gibt das Alphabet zurück
+ * @return secretAlphabet
+ */
 	public String getSecretAlphabet() {
 		return this.secretAlphabet;
 	}
 
 
-	/**
-	 * @see kritzlmalikwortha.Cipher#encrypt(kritzlmalikwortha.lang.String)
+	/**Ist für das verschlüsseln eines Textes mit dem SecretAlphabet zuständig
+	 * 
+	 * @param text des zu verschlüsselnde Text
 	 */
 	public String encrypt(String text) {
 		String alph = this.getStandardAlphabet();
@@ -39,8 +50,9 @@ public class MonoalphabeticCipher implements Cipher{
 	}
 
 
-	/**
-	 * @see kritzlmalikwortha.Cipher#decrypt(kritzlmalikwortha.lang.String)
+	/**Ist für das entschlüsseln eines Textes mit dem SecretAlphabet zuständig
+	 * 
+	 * @param text des zu verschlüsselnde Text
 	 */
 	public String decrypt(String text) {
 		String alph = this.getStandardAlphabet();
@@ -59,7 +71,11 @@ public class MonoalphabeticCipher implements Cipher{
 		}
 		return klar;
 	}
-	
+	/**Prüft das eingegebene Alphabet und setzt es wenn keine Exceptions auftreten
+	 * 
+	 * @param alphabet
+	 * @throws IllegalArgumentException
+	 */
 	public void setSecretAlphabet(String alphabet) throws IllegalArgumentException{
 		String alph = this.getStandardAlphabet();
 
@@ -88,7 +104,10 @@ public class MonoalphabeticCipher implements Cipher{
 		
 		this.secretAlphabet=alphabet;
 	}
-	
+	/**Gibt das StandardAlphabet zurück
+	 * 
+	 * @return String - StandardAlphabet
+	 */
 	public String getStandardAlphabet(){
 		return "abcdefghijklmnopqrstuvwxyzäöüß";
 	}
