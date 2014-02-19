@@ -51,6 +51,7 @@ public class KeywordCipher extends MonoalphabeticCipher {
 			alphabetCharSet.add(c);
 		}
 		for (Character c : alphabetChar) {
+			alphabetCharSet.add(c);
 		}
 		String ausgabe = "";
 		
@@ -59,16 +60,4 @@ public class KeywordCipher extends MonoalphabeticCipher {
 		}
 		this.setSecretAlphabet(ausgabe);
 	}
-	
-	/**
-	 * @param args
-	 * Diese Methode wird nach dem Testen wieder gelöscht
-	 */
-	
-	public static void main(String[] args) {
-		//MonoalphabeticCipher m = new MonoalphabeticCipher();
-		 KeywordCipher k = new KeywordCipher("Hallo");
-		 System.out.println("SecretAlphabet: " + k.getSecretAlphabet());
-	}
-
 }

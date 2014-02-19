@@ -36,15 +36,5 @@ public class ShiftCipher extends MonoalphabeticCipher {
 			alphabetShift[(i+30-this.shiftAmount)%30] = alphabetChar[i];
 		}
 		this.setSecretAlphabet(String.valueOf(alphabetShift));
-		//Wird nach dem Testen wieder gelöscht
-		System.out.println("Krittzl: " + String.valueOf(alphabetShift));
-	}
-	/**
-	 * @param args
-	 * Diese Methode wird nach dem Testen wieder gelöscht
-	 */
-	
-	public static void main(String[] args) {
-		new ShiftCipher(2);
 	}
 }
