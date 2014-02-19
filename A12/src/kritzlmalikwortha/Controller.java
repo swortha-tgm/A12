@@ -16,7 +16,7 @@ public class Controller implements ActionListener {
 	private ShiftCipher sic;
 	private KeywordCipher kc;
 	private SubstitutionCipher suc;
-	private String s;
+	private String s; 
 	/**
 	 * 
 	 */

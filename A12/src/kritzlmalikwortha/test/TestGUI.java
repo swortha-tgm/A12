@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TestGUI {
 
 	@Test
-	public void test() {
+	public void testButtonVerPressed() {
 		fail("Not yet implemented");
 	}
 
