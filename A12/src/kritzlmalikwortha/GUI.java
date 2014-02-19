@@ -140,7 +140,7 @@ public class GUI extends JFrame {
 		return this.dropdown.getSelectedIndex();
 	}
 	/**
-	 * 
+	 * Setzt den JLabel Wert passend zur ausgewählten Verschlüsselungsmethode 
 	 */
 	public void setLabel() {
 		//String s = this.getSelected();
