@@ -5,7 +5,11 @@ import kritzlmalikwortha.KeywordCipher;
 import kritzlmalikwortha.ShiftCipher;
 
 import org.junit.Test;
-
+/**
+ * 
+ * @author Simon Wortha
+ *
+ */
 public class TestShiftCipher {
 
 	/**
