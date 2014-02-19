@@ -49,16 +49,19 @@ public class MonoalphabeticCipher implements Cipher{
 		
 		for (int i = 0; i<text.length();i++){
 			char test = text.charAt(i);
-			int index = this.getSecretAlphabet().indexOf(test);
 			
-			klar = klar+alph.charAt(index);
+			if(alph.contains(""+test)){
+				int index = alph.indexOf(test);
+				klar = klar+this.getSecretAlphabet().charAt(index);
+			}else{
+				klar=klar+test;
+			}
 		}
 		return klar;
 	}
 	
 	public void setSecretAlphabet(String alphabet) throws IllegalArgumentException{
 		String alph = "abcdefghijklmnopqrstuvwxyzäöüß";
-		System.out.println("1: "+alphabet);
 
 		if(alphabet==null){
 			throw new IllegalArgumentException("alphabet cannot be NULL");
@@ -69,8 +72,7 @@ public class MonoalphabeticCipher implements Cipher{
 		}
 		
 		for(int i = 0;i<this.secretAlphabet.length();i++){
-			System.out.println("1: "+alphabet);
-			if(!alph.contains(""+alphabet.charAt(i))){
+				if(!alph.contains(""+alphabet.charAt(i))){
 				throw new IllegalArgumentException("The character '"+alphabet.charAt(i)+"' with the index "+i+" is NOT allowed");				
 			}
 		}
