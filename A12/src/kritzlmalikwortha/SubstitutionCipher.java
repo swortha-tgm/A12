@@ -1,14 +1,13 @@
 package kritzlmalikwortha;
 
-public class SubstitutionCipher extends MonoalphabeticCipher {
+public class SubstitutionCipher extends MonoalphabeticCipher{
 
 	public SubstitutionCipher(String secretalphabet) {
-		super();
-		super.setSecretAlphabet(secretalphabet);
+		this.setSecretAlphabet(secretalphabet);
 	}
 
 	public void setSecretAlphabet(String secretAlphabet) {
-		this.setSecretAlphabet(secretAlphabet);
+		super.setSecretAlphabet(secretAlphabet);
 	}
 
 }
