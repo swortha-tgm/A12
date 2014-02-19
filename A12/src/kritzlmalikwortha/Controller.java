@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Controller implements ActionListener {
 	private GUI g;
+	@SuppressWarnings("unused")
 	private Cipher c;
 	private ShiftCipher sic;
 	private KeywordCipher kc;
