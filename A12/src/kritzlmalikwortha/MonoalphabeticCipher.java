@@ -68,7 +68,7 @@ public class MonoalphabeticCipher implements Cipher{
 		}
 		
 		if(alphabet.length()!=30){
-			throw new IllegalArgumentException("The alphabet contains to many characters");
+			throw new IllegalArgumentException("The alphabet contains too many/less characters");
 		}
 		
 		for(int i = 0;i<this.secretAlphabet.length();i++){
