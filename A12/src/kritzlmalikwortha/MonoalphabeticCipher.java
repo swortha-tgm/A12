@@ -88,5 +88,9 @@ public class MonoalphabeticCipher implements Cipher{
 		
 		this.secretAlphabet=alphabet;
 	}
+	
+	public String getStandardAlphabet(){
+		return "abcdefghijklmnopqrstuvwxyzäöüß";
+	}
 
 }
