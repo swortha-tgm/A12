@@ -77,11 +77,23 @@ public class TestMonoAlphabetic {
 			}
 			 
 			 
-			 
 			 @Test
 				public void alph12() {
 					MonoalphabeticCipher a = new MonoalphabeticCipher();
 					a.setSecretAlphabet("ßabcdefghijklmnopqrstuvwxyzäüö");
 					assertEquals(a.decrypt("gßkkn"), "hallo");
+			}
+			 @Test
+				public void alph13() {
+					MonoalphabeticCipher a = new MonoalphabeticCipher();
+					a.setSecretAlphabet("bcdefghijklmnopqrstuvwxyzäüößa");
+					assertEquals(a.encrypt("Hallo wie gehts"), "ibmmp xjf hfiut");
+			}
+			 
+			 @Test
+				public void alph14() {
+					MonoalphabeticCipher a = new MonoalphabeticCipher();
+					a.setSecretAlphabet("ßabcdefghijklmnopqrstuvwxyzäüö");
+					assertEquals(a.encrypt("ibmmp xjf hfiut"), "hallo wie gehts");
 			}
 }
