@@ -146,7 +146,6 @@ public class GUI extends JFrame {
 	 * Setzt den JLabel Wert passend zur ausgewählten Verschlüsselungsmethode 
 	 */
 	public void setLabel() {
-		//String s = this.getSelected();
 		if(this.getSelected() == 0) this.label2.setText("Geheimalphabet:");
 		if(this.getSelected() == 1) this.label2.setText("Shiftvalue:");
 		if(this.getSelected() == 2) this.label2.setText("Keyword:");
