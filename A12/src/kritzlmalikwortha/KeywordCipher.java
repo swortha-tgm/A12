@@ -38,7 +38,7 @@ public class KeywordCipher extends MonoalphabeticCipher {
 		for(int i = 0;i<keyword.length();i++){
 			
 			if(!this.getSecretAlphabet().contains(""+keyword.charAt(i))){
-				throw new IllegalArgumentException("The character '"+this.getSecretAlphabet().charAt(i)+"' with the index "+i+" is NOT allowed");				
+				throw new IllegalArgumentException("The character '"+this.keyword.charAt(i)+"' with the index "+i+" is NOT allowed");				
 			}
 		}
 		if (keyword.length() > 30) throw new IllegalArgumentException("The Keyword contains to many characters");
@@ -46,12 +46,11 @@ public class KeywordCipher extends MonoalphabeticCipher {
 		
 		char[] keyChar = this.keyword.toCharArray();
 		LinkedHashSet<Character> alphabetCharSet = new LinkedHashSet<Character>(); 
-		char[] alphabetChar = this.getSecretAlphabet().toCharArray();
+		char[] alphabetChar = this.getStandardAlphabet().toCharArray();
 		for (Character c : keyChar) {
 			alphabetCharSet.add(c);
 		}
 		for (Character c : alphabetChar) {
-			alphabetCharSet.add(c);
 		}
 		String ausgabe = "";
 		

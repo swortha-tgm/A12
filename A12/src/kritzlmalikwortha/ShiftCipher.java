@@ -30,7 +30,7 @@ public class ShiftCipher extends MonoalphabeticCipher {
 	 */
 	public void setShiftAmount(int shiftamount) {
 		this.shiftAmount = shiftamount%30;
-		char[] alphabetChar = this.getSecretAlphabet().toCharArray();
+		char[] alphabetChar = this.getStandardAlphabet().toCharArray();
 		char[] alphabetShift = new char[30];
 		for(int i=0; i < 30;i++) {
 			alphabetShift[(i+30-this.shiftAmount)%30] = alphabetChar[i];
