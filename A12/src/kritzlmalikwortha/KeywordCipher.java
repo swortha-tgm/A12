@@ -61,6 +61,5 @@ public class KeywordCipher extends MonoalphabeticCipher {
 			ausgabe += c;
 		}
 		this.setSecretAlphabet(ausgabe);
-		System.out.println(ausgabe);
 	}
 }
