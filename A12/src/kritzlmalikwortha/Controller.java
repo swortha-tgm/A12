@@ -54,7 +54,7 @@ public class Controller implements ActionListener {
 		if(g.buttonEntPressed(e)){
 			switch(g.getSelected()){
 			case 0:
-				this.suc.setSecretAlphabet(g.getVerSch());
+				
 				s = suc.decrypt(g.getEingabe());
 				g.setAusgabe(s);
 				break;
