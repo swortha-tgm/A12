@@ -4,7 +4,7 @@ import java.util.HashSet;
 /**
  * Überprüft die eingegebenen Alphabete, ist für das ver-und entschlüsseln zuständig
  * 
- * @author Patrik Malik(Programmieren), Martin Kritzl(Dukumentieren)
+ * @author Patrick Malik(Programmieren), Martin Kritzl(Dukumentieren)
  *
  */
 public class MonoalphabeticCipher implements Cipher{
@@ -29,7 +29,7 @@ public class MonoalphabeticCipher implements Cipher{
 
 	/**Ist für das verschlüsseln eines Textes mit dem SecretAlphabet zuständig
 	 * 
-	 * @param text des zu verschlüsselnde Text
+	 * @param text der zu verschlüsselnde Text
 	 */
 	public String encrypt(String text) {
 		String alph = this.getStandardAlphabet();
@@ -52,7 +52,7 @@ public class MonoalphabeticCipher implements Cipher{
 
 	/**Ist für das entschlüsseln eines Textes mit dem SecretAlphabet zuständig
 	 * 
-	 * @param text des zu verschlüsselnde Text
+	 * @param text des zu verschlüsselnden Text
 	 */
 	public String decrypt(String text) {
 		String alph = this.getStandardAlphabet();
@@ -73,7 +73,7 @@ public class MonoalphabeticCipher implements Cipher{
 	}
 	/**Prüft das eingegebene Alphabet und setzt es wenn keine Exceptions auftreten
 	 * 
-	 * @param alphabet
+	 * @param alphabet secretAlphabet
 	 * @throws IllegalArgumentException
 	 */
 	public void setSecretAlphabet(String alphabet) throws IllegalArgumentException{
