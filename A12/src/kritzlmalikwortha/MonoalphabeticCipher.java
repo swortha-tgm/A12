@@ -53,7 +53,7 @@ public class MonoalphabeticCipher implements Cipher{
 	
 	public void setSecretAlphabet(String alphabet) throws IllegalArgumentException{
 		String alph = "abcdefghijklmnopqrstuvwxyzäöüß";
-		
+		System.out.println("1: "+alphabet);
 
 		if(alphabet==null){
 			throw new IllegalArgumentException("alphabet cannot be NULL");
@@ -64,7 +64,7 @@ public class MonoalphabeticCipher implements Cipher{
 		}
 		
 		for(int i = 0;i<this.secretAlphabet.length();i++){
-			
+			System.out.println("1: "+alphabet);
 			if(!alph.contains(""+alphabet.charAt(i))){
 				throw new IllegalArgumentException("The character '"+alphabet.charAt(i)+"' with the index "+i+" is NOT allowed");				
 			}

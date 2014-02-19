@@ -13,12 +13,18 @@ import javax.swing.JOptionPane;
 public class Controller implements ActionListener {
 	private GUI g;
 	private Cipher c;
+	private ShiftCipher sic;
+	private KeywordCipher kc;
+	private SubstitutionCipher suc;
 	private String s;
 	/**
 	 * 
 	 */
 	public Controller() {
 		g = new GUI(this);
+		sic = new ShiftCipher(0);
+		kc = new KeywordCipher("Default");
+		suc= new SubstitutionCipher("abcdefghijklmnopqrstuvwxyzäöüß");
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -30,36 +36,36 @@ public class Controller implements ActionListener {
 		if(g.buttonVerPressed(e)){
 			switch(g.getSelected()){
 			case 0:
-				c = new SubstitutionCipher(g.getVerSch());
-				s = c.encrypt(g.getEingabe());
+				this.suc.setSecretAlphabet(g.getVerSch());
+				s = suc.encrypt(g.getEingabe());
 				g.setAusgabe(s);
 				break;
 			case 1:
-				c = new ShiftCipher(Integer.parseInt(g.getVerSch()));
-				s = c.encrypt(g.getEingabe());
+				this.sic.setShiftAmount(Integer.parseInt(g.getVerSch()));
+				s = sic.encrypt(g.getEingabe());
 				g.setAusgabe(s);
 				break;
 			case 2: 
-				c = new KeywordCipher(g.getVerSch());
-				s = c.encrypt(g.getEingabe());
+				this.kc.setKeyword(g.getVerSch());
+				s = kc.encrypt(g.getEingabe());
 				g.setAusgabe(s);
 			}
 		}
 		if(g.buttonEntPressed(e)){
 			switch(g.getSelected()){
 			case 0:
-				c = new SubstitutionCipher(g.getVerSch());
-				s = c.decrypt(g.getEingabe());
+				this.suc.setSecretAlphabet(g.getVerSch());
+				s = suc.decrypt(g.getEingabe());
 				g.setAusgabe(s);
 				break;
 			case 1:
-				c = new ShiftCipher(Integer.parseInt(g.getVerSch()));
-				s = c.decrypt(g.getEingabe());
+				this.sic.setShiftAmount(Integer.parseInt(g.getVerSch()));
+				s = sic.decrypt(g.getEingabe());
 				g.setAusgabe(s);
 				break;
 			case 2: 
-				c = new KeywordCipher(g.getVerSch());
-				s = c.decrypt(g.getEingabe());
+				this.kc.setKeyword(g.getVerSch());
+				s = kc.decrypt(g.getEingabe());
 				g.setAusgabe(s);
 			}
 		}
