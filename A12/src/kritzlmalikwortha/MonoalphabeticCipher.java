@@ -21,9 +21,9 @@ public class MonoalphabeticCipher implements Cipher{
 	 * @see kritzlmalikwortha.Cipher#encrypt(kritzlmalikwortha.lang.String)
 	 */
 	public String encrypt(String text) {
-		String alph = "abcdefghijklmnopqrstuvwxyzäöüß";
+		String alph = this.getStandardAlphabet();
 		text=text.toLowerCase();
-		String unklar = "";
+		String unklar = ""; //Verschlüsselt
 		
 		for (int i = 0; i<text.length();i++){
 			char test = text.charAt(i);
@@ -43,16 +43,16 @@ public class MonoalphabeticCipher implements Cipher{
 	 * @see kritzlmalikwortha.Cipher#decrypt(kritzlmalikwortha.lang.String)
 	 */
 	public String decrypt(String text) {
-		String alph = "abcdefghijklmnopqrstuvwxyzäöüß";
+		String alph = this.getStandardAlphabet();
 		text=text.toLowerCase();
-		String klar = "";
+		String klar = ""; //Entschlüsselt
 		
 		for (int i = 0; i<text.length();i++){
 			char test = text.charAt(i);
 			
 			if(alph.contains(""+test)){
-				int index = alph.indexOf(test);
-				klar = klar+this.getSecretAlphabet().charAt(index);
+				int index = this.getSecretAlphabet().indexOf(test);
+				klar = klar+alph.charAt(index);
 			}else{
 				klar=klar+test;
 			}
@@ -61,7 +61,7 @@ public class MonoalphabeticCipher implements Cipher{
 	}
 	
 	public void setSecretAlphabet(String alphabet) throws IllegalArgumentException{
-		String alph = "abcdefghijklmnopqrstuvwxyzäöüß";
+		String alph = this.getStandardAlphabet();
 
 		if(alphabet==null){
 			throw new IllegalArgumentException("alphabet cannot be NULL");
