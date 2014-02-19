@@ -21,10 +21,11 @@ public class Controller implements ActionListener {
 	 * 
 	 */
 	public Controller() {
-		g = new GUI(this);
 		sic = new ShiftCipher(0);
 		kc = new KeywordCipher("Default");
 		suc= new SubstitutionCipher("abcdefghijklmnopqrstuvwxyzäöüß");
+		//die GUI wird als letztes erstellt damit keine Buttons gedrückt werden können bevor die Cipher erstellet wurden
+		g = new GUI(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -54,7 +55,7 @@ public class Controller implements ActionListener {
 		if(g.buttonEntPressed(e)){
 			switch(g.getSelected()){
 			case 0:
-				
+				this.suc.setSecretAlphabet(g.getVerSch());
 				s = suc.decrypt(g.getEingabe());
 				g.setAusgabe(s);
 				break;

@@ -33,6 +33,8 @@ public class GUI extends JFrame {
 	private Border border;
 	private Controller controller;
 	/**
+	 * Alle Buttons, Labels, TextFields, ... werden hier erstellt 
+	 * ActionListener werden ebenfalls geadded
 	 * @param c 
 	 * 
 	 */
@@ -92,7 +94,7 @@ public class GUI extends JFrame {
 	/**
 	 * ActionListener
 	 * @param e
-	 * @return on gedrückt
+	 * @return ob gedrückt
 	 */
 	public boolean buttonVerPressed(ActionEvent e) {
 		if (e.getSource() == this.bVer) return true;
@@ -108,6 +110,7 @@ public class GUI extends JFrame {
 		return false;
 	}
 	/**
+	 * ActionListener
 	 * @param e
 	 * @return ob Werte verändert
 	 */
@@ -116,7 +119,7 @@ public class GUI extends JFrame {
 		return false;
 	}
 	/**
-	 * @return gibt die Verschiebung bzw wie Verschlüsselt werden soll an
+	 * @return gibt die Verschiebung/Keyword/Secretalphabet an
 	 */
 	public String getVerSch() {
 		return this.verSch.getText();
