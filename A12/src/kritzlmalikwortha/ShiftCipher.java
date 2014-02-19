@@ -1,32 +1,31 @@
 package kritzlmalikwortha;
 
 /**
- * @author Martin Kritzl
- * Funktion: Die Klasse ist zur Verschlüsselung nach einem Verschiebewert zuständig. Hierbei wird das Alphabet um den gegebenen
+ * Die Klasse ist zur Verschlüsselung nach einem Verschiebewert zuständig. Hierbei wird das Alphabet um den gegebenen
  * 			 Wert nach links verschoben(z.B Verschiebung 1 --> Anfang mit b)
- *
+ * 
+ * 
+ * @author Martin Kritzl
+ * 
  */
 
 public class ShiftCipher extends MonoalphabeticCipher {
 	
 	private int shiftAmount;
 	
-	/**
-	 * @param value
+	/**Speichert die Eingabe in das Attribut shiftAmount ab
 	 * 
-	 * Eingangsparameter: ein int-Wert der eine beliebige Zahl sein kann
-	 * Speichern des Eingangsparameter in das Attribut
+	 * @param value ein int-Wert der eine beliebige Zahl sein kann
 	 */
 	public ShiftCipher(int value) {
 		this.shiftAmount = value%30;
 				
 	}
 	/**
-	 * @param shiftamount
-	 * 
-	 * Eingangsparameter: ein int-Wert der eine beliebige Zahl sein kann
 	 * Es wird der shiftAmount gesetzt, aber schon mittels %30 gleich vereinfacht wird und dann das Alphabet um
 	 * diesen Wert verschiebt
+	 * 
+	 * @param shiftamount ein int-Wert der eine beliebige Zahl sein kann
 	 */
 	public void setShiftAmount(int shiftamount) {
 		this.shiftAmount = shiftamount%30;

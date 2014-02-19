@@ -3,10 +3,12 @@ package kritzlmalikwortha;
 import java.util.LinkedHashSet;
 
 /**
- * @author Martin Kritzl
- * Funktion: Die Klasse ist zur Verschlüsselung nach einem Keyword zuständig. Hierbei wird ein Keyword am Anfang geschrieben
- * 			 und die nicht vorkommenden Buchstaben aus dem Alphabet werden hinten angehängt
+ * Die Klasse ist zur Verschlüsselung nach einem Keyword zuständig. Hierbei wird ein Keyword am Anfang geschrieben
+ * und die nicht vorkommenden Buchstaben aus dem Alphabet werden hinten angehängt
  *
+ * 
+ * @author Martin Kritzl
+ * 
  */
 
 public class KeywordCipher extends MonoalphabeticCipher {
@@ -14,9 +16,7 @@ public class KeywordCipher extends MonoalphabeticCipher {
 	private String keyword;
 	
 	/** 
-	 * @param keyword
-	 * 
-	 * Eingangsparameter: ein Default Key der schon in der Aufrufermethode auf Richtigkeit geprüft wird
+	 * @param keyword - ein Default Key der schon in der Aufrufermethode auf Richtigkeit geprüft wird
 	 * Speichern des Eingangsparameter in das Attribut
 	 * 
 	 */
@@ -25,12 +25,14 @@ public class KeywordCipher extends MonoalphabeticCipher {
 	}
 
 	/**
-	 * @param keyword
 	 * 
-	 * Eingangsparameter: ein String der nur Character aus dem Alphabet beinhalten darf und nicht länger oder kürzer als 30 Zeichen
-	 *					  sein darf, ansonsten eine IllegalArgumentException geworfen
 	 * Das Keyword wird am Anfang geschrieben und die nicht in diesem Wort vorkommenden Character werden in alphabetischer Reihenfolge
 	 * hinten angehängt und dann diesen String mit der Methode setSecretAlphabet gespeichert
+	 * 
+	 * @param keyword
+	 * 
+	 * @throws IllegalArgumentException - wenn das Keyword Zeichen enthält die nicht im Alphabet vorhanden sind oder länger ist als
+	 * 30 Zeichen
 	 * 
 	 */
 	public void setKeyword(String keyword) {
