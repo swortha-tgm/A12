@@ -11,15 +11,27 @@ import kritzlmalikwortha.GUI;
 
 import org.junit.Test;
 
-public class TestGUI {
+public class TestGUI{
 
 	@Test
-	public void testButtonVerPressed() {
+	public void testgetEingabe() {
 		GUI g = new GUI(new Controller());
-		JButton bVer = new JButton("Verschlüsseln");
-		ActionEvent a = new ActionEvent(bVer,1,null);
-		assertTrue(g.buttonVerPressed(a));
+		assertEquals("Hier den zu Ver/Ent-schlüsselten Text angeben",g.getEingabe());
 		
 	}
+	
+	@Test
+	public void testgetSelected(){
+		GUI g = new GUI(new Controller());
+		assertEquals(0,g.getSelected());
+	}
+	
+	@Test
+	public void testgetVersch(){
+		GUI g = new GUI(new Controller());
+		assertEquals("",g.getVerSch());
+	}
+	
+	
 
 }
